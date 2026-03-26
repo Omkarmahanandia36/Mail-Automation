@@ -1,0 +1,22 @@
+[
+  {
+    "date": "2026-01-26",
+    "name": "Republic Day",
+    "description": "Republic Day (Office Holiday)"
+  },
+  {
+    "date": "2026-08-15",
+    "name": "Independence Day",
+    "description": "Independence Day (Office Holiday)"
+  },
+  {
+    "date": "2026-10-02",
+    "name": "Gandhi Jayanti",
+    "description": "Gandhi Jayanti (Office Holiday)"
+  },
+  {
+    "date": "2026-05-01",
+    "name": "Labour Day",
+    "description": "Labour Day (Office Holiday)"
+  }
+]
