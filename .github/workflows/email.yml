@@ -2,8 +2,8 @@ name: Send Attendance Email
 
 on:
   schedule:
-    # 15:20 Asia/Kolkata = 09:50 UTC
-    - cron: "50 9 * * *"
+    # 09:30 Asia/Kolkata = 04:00 UTC
+    - cron: "0 4 * * *"
   workflow_dispatch:
 
 jobs:
@@ -32,3 +32,4 @@ jobs:
           EMAIL_SUBJECT: ${{ secrets.EMAIL_SUBJECT }}
           ATTENDANCE_LINK: ${{ secrets.ATTENDANCE_LINK }}
         run: python -c "import automation; automation.send_emails()"
+

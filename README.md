@@ -77,7 +77,7 @@ automation.send_emails()
 Edit the scheduled time in `automation.py`:
 
 ```python
-schedule.every().day.at("15:20").do(job)
+schedule.every().day.at("09:30").do(job)
 ```
 
 The time uses your system’s local timezone.
@@ -94,7 +94,7 @@ You can run the email send on a daily schedule using GitHub Actions.
    - `SMTP_PORT`
    - `EMAIL_SUBJECT` (optional)
    - `ATTENDANCE_LINK` (optional)
-3. The workflow runs daily at **15:20 Asia/Kolkata** (09:50 UTC).  
+3. The workflow runs daily at **09:30 Asia/Kolkata** (04:00 UTC).  
    Edit `.github/workflows/email.yml` if you want a different time.
 
 Note: GitHub Actions uses secrets, not `.env`. Keep real credentials out of the repo.
@@ -108,3 +108,4 @@ Your network may block outbound SMTP. Try:
 
 **Gmail 535 BadCredentials**  
 Use an App Password and make sure `SENDER_EMAIL` matches the Gmail account that created it.
+
