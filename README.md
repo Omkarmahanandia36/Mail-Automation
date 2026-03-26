@@ -82,6 +82,23 @@ schedule.every().day.at("15:20").do(job)
 
 The time uses your system’s local timezone.
 
+## GitHub Actions
+
+You can run the email send on a daily schedule using GitHub Actions.
+
+1. Push this repo to GitHub.
+2. Add repository secrets (Settings → Secrets and variables → Actions):
+   - `SENDER_EMAIL`
+   - `SENDER_PASSWORD`
+   - `SMTP_SERVER`
+   - `SMTP_PORT`
+   - `EMAIL_SUBJECT` (optional)
+   - `ATTENDANCE_LINK` (optional)
+3. The workflow runs daily at **15:20 Asia/Kolkata** (09:50 UTC).  
+   Edit `.github/workflows/email.yml` if you want a different time.
+
+Note: GitHub Actions uses secrets, not `.env`. Keep real credentials out of the repo.
+
 ## Troubleshooting
 
 **SMTP blocked (WinError 10013)**  

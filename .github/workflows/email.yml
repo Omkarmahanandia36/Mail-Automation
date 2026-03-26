@@ -1,0 +1,34 @@
+name: Send Attendance Email
+
+on:
+  schedule:
+    # 15:20 Asia/Kolkata = 09:50 UTC
+    - cron: "50 9 * * *"
+  workflow_dispatch:
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Kolkata
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r Requirements.txt
+
+      - name: Send emails
+        env:
+          SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
+          SENDER_PASSWORD: ${{ secrets.SENDER_PASSWORD }}
+          SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          EMAIL_SUBJECT: ${{ secrets.EMAIL_SUBJECT }}
+          ATTENDANCE_LINK: ${{ secrets.ATTENDANCE_LINK }}
+        run: python -c "import automation; automation.send_emails()"
